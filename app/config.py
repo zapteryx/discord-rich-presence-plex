@@ -65,7 +65,10 @@ config: Config = {
 		"artistImage": True,
 		"year": True,
 		"statusIcon": False,
-		"statusDisplayType": "state",
+		"statusDisplayType": {
+			"listening": "state",
+			"watching": "details",
+		},
 		"progressMode": "bar",
 		"paused": False,
 		"posters": {
