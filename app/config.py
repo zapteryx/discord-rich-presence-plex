@@ -62,9 +62,10 @@ config: Config = {
 		"album": True,
 		"albumImage": True,
 		"artist": True,
-		"artistImage": True,
+		"artistImage": False,
 		"year": True,
 		"statusIcon": False,
+		"statusDisplayType": "state",
 		"progressMode": "bar",
 		"paused": False,
 		"posters": {
