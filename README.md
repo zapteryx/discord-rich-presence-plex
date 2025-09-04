@@ -41,7 +41,7 @@ The config file is stored in a directory named `data`.
   - `album` (boolean, default: `true`) - Displays the album name. Applicable to music only.
   - `albumImage` (boolean, default: `true`) - Displays the album image. Applicable to music only.
   - `artist` (boolean, default: `true`) - Displays the artist name. Applicable to music only.
-  - `artistImage` (boolean, default: `true`) - Displays the artist image. Applicable to music only.
+  - `artistImage` (boolean, default: `false`) - Displays the artist image. Applicable to music only.
   - `year` (boolean, default: `true`) - Displays the release year.
   - `statusIcon` (boolean, default: `false`) - Displays a status icon (playing, paused, buffering) at the bottom-right corner of the poster. Applicable to movies and TV shows only.
   - `statusDisplayType` (string, default: `state`) - Determines what is displayed in the status (displayed under your username in a member list). Valid options are `state` (e.g. Listening to **Pitbull**), `name` (e.g. Listening to **Plex**) and `details` (e.g. Listening to **Never Gonna Give You Up**)."
