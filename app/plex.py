@@ -33,6 +33,12 @@ mediaTypeActivityTypeMap = {
 	"clip": discord.ActivityType.WATCHING,
 }
 
+statusDisplayTypeMap = {
+	"name": 0,
+	"state": 1,
+	"details": 2,
+}
+
 buttonTypeGuidTypeMap = {
 	"imdb": "imdb",
 	"tmdb": "tmdb",
@@ -286,12 +292,11 @@ class PlexAlertListener(threading.Thread):
 		stateText = " · ".join(stateString for stateString in stateStrings if stateString)
 		thumbUrl = images.upload(thumb, self.server.url(thumb, True)) if thumb and config.config["display"]["posters"]["enabled"] else ""
 		smallThumbUrl = images.upload(smallThumb, self.server.url(smallThumb, True)) if smallThumb and config.config["display"]["posters"]["enabled"] else ""
-		statusDisplayType = 1
-		if config.config["display"]["statusDisplayType"]:
-			if config.config["display"]["statusDisplayType"] == "name":
-				statusDisplayType = 0
-			elif config.config["display"]["statusDisplayType"] == "details":
-				statusDisplayType = 2
+		statusDisplayType = statusDisplayTypeMap["state"]
+		if mediaTypeActivityTypeMap[mediaType] == discord.ActivityType.LISTENING:
+			statusDisplayType = statusDisplayTypeMap[config.config["display"]["statusDisplayType"]["listening"]]
+		elif mediaTypeActivityTypeMap[mediaType] == discord.ActivityType.WATCHING:
+			statusDisplayType = statusDisplayTypeMap[config.config["display"]["statusDisplayType"]["watching"]]
 		activity: discord.Activity = {
 			"type": mediaTypeActivityTypeMap[mediaType],
 			"details": adjustTextLength(title, 120, 2),
